@@ -1,4 +1,4 @@
-package com.example.abdallap;
+package com.example.abdallap.User;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.abdallap.Admin.AddProductActivity;
+import com.example.abdallap.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -37,7 +39,7 @@ public class LogIn extends AppCompatActivity {
         newAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LogIn.this,SignUp.class));
+                startActivity(new Intent(LogIn.this, SignUp.class));
             }
         });
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +54,7 @@ public class LogIn extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
 
-                                    startActivity(new Intent(LogIn.this,MainActivity.class));
+                                    startActivity(new Intent(LogIn.this, AddProductActivity.class));
 
                                 } else {
 

@@ -1,4 +1,4 @@
-package com.example.abdallap;
+package com.example.abdallap.User;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,12 +14,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.abdallap.CartFragment;
+import com.example.abdallap.HomeFragment;
+import com.example.abdallap.InfoFragment;
+import com.example.abdallap.ProductFragment;
+import com.example.abdallap.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.ktx.Firebase;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     TextView username,email;
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             username.setText(user.getDisplayName());
             email.setText(user.getEmail());
         }else{
-            Intent i= new Intent(MainActivity.this,LogIn.class);
+            Intent i= new Intent(MainActivity.this, LogIn.class);
             startActivity(i);
         }
         drawerLayout = findViewById(R.id.drawer_layout);
