@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             username.setText(user.getDisplayName());
             email.setText(user.getEmail());
         }else{
-            Intent i= new Intent(MainActivity.this, LogIn.class);
+            Intent i= new Intent(MainActivity.this, AddProductActivity.class);
             startActivity(i);
         }
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoFragment()).commit();
         }
         else if(R.id.nav_logout==item.getItemId()){
+            fauth.signOut();
             startActivity(new Intent(this,LogIn.class));
             Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
         }

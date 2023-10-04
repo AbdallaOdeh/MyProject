@@ -27,7 +27,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     Product p;
     Uri selectedImageUri;
     DBHelper dbHelper;
-    ProgressBar addItemProgressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,16 +41,12 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         btadd = findViewById(R.id.addButton);
         btadd.setOnClickListener(this);
         imageButton.setOnClickListener(this);
-        addItemProgressBar=findViewById(R.id.addItemProgressBar);
-        dbHelper = new DBHelper(this);
-        dbHelper.OpenWriteAble();
 
+        dbHelper = new DBHelper(this);
     }
     @Override
     public void onClick(View view) {
            if(view.getId()==R.id.addButton){
-               addItemProgressBar.setVisibility(View.VISIBLE);
-               dbHelper = new DBHelper(this);
 
                byte[] data  = imageViewToByte();
                p=new Product(ettype.getText().toString(),etdisc.getText().toString(),
