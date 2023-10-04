@@ -7,7 +7,6 @@ public class QueryString {
     public static final String SQL_CREATE_PRODUCT =
             "CREATE TABLE " + ProductTable.TABLE_PRODUCT + " (" +
                     ProductTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    ProductTable.COLUMN_PRODUCT_NAME + " TEXT," +
                     ProductTable.COLUMN_PRODUCT_DESCRIPTION + " TEXT," +
                     ProductTable.COLUMN_PRODUCT_STOCK + " INTEGER," +
                     ProductTable.COLUMN_PRODUCT_SALEPRICE + " DOUBLE,"+
@@ -26,7 +25,8 @@ public class QueryString {
                     SaleTable.COLUMN_SALE_PROD_ID + " INTEGER," +
                     SaleTable.COLUMN_SALE_USER_ID + " TEXT,"+
                     SaleTable.COLUMN_SALE_PRICE + " DOUBLE,"+
-                    SaleTable.COLUMN_BUY_PRICE + " DOUBLE);";
+                    SaleTable.COLUMN_BUY_PRICE + " DOUBLE);" +
+                    SaleTable.COLUMN_STOCKS_SOLD + "INTEGER);";
 
     //endregions
 

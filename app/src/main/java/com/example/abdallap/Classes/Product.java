@@ -13,23 +13,21 @@ public class Product implements SqlInterface{
 
     //region Attribute
     protected int pid;
-    protected String prodname;
     protected String prodtype;
     protected String proddisc;
-    protected int quantity;
+    protected int stock;
     protected double saleprice;
     protected double buyprice;
     protected byte[] imageByte;
     //endregion
 
     //region Constructors
-    public Product(String prodname,String prodtype,String proddisc,int quantity,double saleprice,double buyprice,byte[] image){
+    public Product(String prodtype,String proddisc,int stock,double saleprice,double buyprice,byte[] image){
         this.saleprice=saleprice;
         this.buyprice=buyprice;
-        this.prodname=prodname;
-        this.prodtype=prodtype
+        this.prodtype=prodtype;
         this.proddisc=proddisc;
-        this.quantity=quantity;
+        this.stock=stock;
         this.imageByte = image;
     }
    //endregion
@@ -39,7 +37,6 @@ public class Product implements SqlInterface{
     public long Add(SQLiteDatabase db) {
         // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(COLUMN_PRODUCT_NAME, prodname);
         values.put(COLUMN_PRODUCT_DESCRIPTION, proddisc);
         values.put(COLUMN_PRODUCT_BUYPRICE, buyprice);
         values.put(COLUMN_PRODUCT_SALEPRICE, saleprice);
@@ -66,7 +63,6 @@ public class Product implements SqlInterface{
     public int Update(SQLiteDatabase db, int id) {
         // New value for one column
         ContentValues values = new ContentValues();
-        values.put(COLUMN_PRODUCT_NAME, prodname);
         values.put(COLUMN_PRODUCT_DESCRIPTION, proddisc);
         values.put(COLUMN_PRODUCT_BUYPRICE, buyprice);
         values.put(COLUMN_PRODUCT_SALEPRICE, saleprice);
@@ -89,7 +85,6 @@ public class Product implements SqlInterface{
     public Cursor Select(SQLiteDatabase db) {
         String[] projection = {
                 BaseColumns._ID,
-                COLUMN_PRODUCT_NAME,
                 COLUMN_PRODUCT_DESCRIPTION,
                 COLUMN_PRODUCT_IMAGE,
                 COLUMN_PRODUCT_STOCK,
@@ -118,14 +113,6 @@ public class Product implements SqlInterface{
 
     public void setPid(int pid) {
         this.pid = pid;
-    }
-
-    public String getProdname() {
-        return prodname;
-    }
-
-    public void setProdname(String prodname) {
-        this.prodname = prodname;
     }
 
     public String getProddisc() {

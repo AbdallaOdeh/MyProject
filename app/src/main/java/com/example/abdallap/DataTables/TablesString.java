@@ -9,7 +9,6 @@ public class TablesString {
     //region Product Table
     public static class ProductTable implements BaseColumns {
         public static final String TABLE_PRODUCT = "Product";
-        public static final String COLUMN_PRODUCT_NAME = "ProductName";
         public static final String COLUMN_PRODUCT_DESCRIPTION = "Description";
         public static final String COLUMN_PRODUCT_IMAGE = "ProductImage";
         public static final String COLUMN_PRODUCT_STOCK = "Stock";
@@ -23,7 +22,7 @@ public class TablesString {
     public static class CartTable implements BaseColumns {
         public static final String TABLE_CART = "Cart";
         public static final String COLUMN_PRODUCT_ID = "PID";
-        public static final String COLUMN_SOLD_AMOUNT = "";
+        public static final String COLUMN_USER_ID = "UID";
 
     }
     //endregion
@@ -35,6 +34,7 @@ public class TablesString {
         public static final String COLUMN_SALE_USER_ID = "UID";
         public static final String COLUMN_SALE_PRICE = "SalePrice";
         public static final String COLUMN_BUY_PRICE = "BuyPrice";
+        public static final String COLUMN_STOCKS_SOLD = "AmountSold";
     }
     //endregion
 }

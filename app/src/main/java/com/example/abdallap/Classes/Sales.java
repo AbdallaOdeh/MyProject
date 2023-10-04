@@ -13,14 +13,14 @@ public class Sales implements SqlInterface{
     //region Attributes
     private int salesid;
     private int prodid;
-    private String soldAmount;
+    private String StockSold;
    //endregion
 
     //region Constructors
-    public Sales(int salesid, int salesprod, String salesuser) {
+    public Sales(int salesid, int salesprod, String StockSold) {
         this.salesid = salesid;
         this.prodid = salesprod;
-        this.soldAmount = soldAmount;
+        this.StockSold = StockSold;
     }
     //endregion
 
@@ -30,7 +30,6 @@ public class Sales implements SqlInterface{
         // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(COLUMN_SALE_PROD_ID, prodid);
-        values.put(COLUMN_SALE__ID, userid);
 
 // Insert the new row, returning the primary key value of the new row
         return db.insert(TABLE_SALE, null, values);
@@ -50,7 +49,6 @@ public class Sales implements SqlInterface{
         // New value for one column
         ContentValues values = new ContentValues();
         values.put(COLUMN_SALE_PROD_ID, prodid);
-        values.put(COLUMN_SALE_USER_ID, userid);
 
 // Which row to update, based on the title
         String selection = BaseColumns._ID + " LIKE ?";
@@ -68,7 +66,7 @@ public class Sales implements SqlInterface{
         String[] projection = {
                 BaseColumns._ID,
                 COLUMN_SALE_PROD_ID,
-                COLUMN_SALE_SOLD_AMOUNT
+                COLUMN_STOCKS_SOLD,
         };
 // How you want the results sorted in the resulting Cursor
         String sortOrder =
@@ -102,12 +100,10 @@ public class Sales implements SqlInterface{
         this.prodid = salesprod;
     }
 
-    public String getSalesuser() {
-        return userid;
+    public String getStockSold() {
+        return StockSold;
     }
 
-    public void setSalesuser(String salesuser) {
-        this.userid = salesuser;
     }
     //endregion
-}
+

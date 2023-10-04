@@ -54,7 +54,7 @@ public class LogIn extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
 
-                                    startActivity(new Intent(LogIn.this, AddProductActivity.class));
+                                    startActivity(new Intent(LogIn.this, MainActivity.class));
 
                                 } else {
 

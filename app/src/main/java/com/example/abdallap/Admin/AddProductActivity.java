@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.example.abdallap.Classes.Product;
@@ -22,7 +21,7 @@ import java.io.IOException;
 public class AddProductActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static int RESULT_LOAD_IMAGE = 1;
-    EditText etname,etdisc,etstock,etsaleprice,etbuyprice;
+    EditText ettype,etdisc,etstock,etsaleprice,etbuyprice;
     ImageButton imageButton;
     Button btadd;
     Product p;
@@ -33,7 +32,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
-        etname = findViewById(R.id.etProdName);
+        ettype = findViewById(R.id.etProdType);
         etdisc = findViewById(R.id.etDesc);
         etstock = findViewById(R.id.etStock);
         etsaleprice = findViewById(R.id.etSalePrice);
@@ -54,7 +53,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
                dbHelper = new DBHelper(this);
 
                byte[] data  = imageViewToByte();
-               p=new Product(etname.getText().toString(),etdisc.getText().toString(),
+               p=new Product(ettype.getText().toString(),etdisc.getText().toString(),
                           Integer.parseInt(etstock.getText().toString()),
                        Double.parseDouble(etsaleprice.getText().toString()),
                        Double.parseDouble(etbuyprice.getText().toString()),data);
