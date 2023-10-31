@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.abdallap.Admin.AddProductActivity;
+import com.example.abdallap.Admin.ShowProduct;
 import com.example.abdallap.CartFragment;
 import com.example.abdallap.HomeFragment;
 import com.example.abdallap.InfoFragment;
@@ -41,6 +42,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
         FirebaseUser user = fauth.getCurrentUser();
         if (user!=null){
+            if(user.getDisplayName().startsWith("admin: ")) {
+                Intent i = new Intent(MainActivity.this, ShowProduct.class);
+                startActivity(i);
+            }
             NavigationView navigationView = findViewById(R.id.nav_view);
             View headerview = navigationView.getHeaderView(0);
             username =(TextView) headerview.findViewById(R.id.tvUserName);

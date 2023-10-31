@@ -62,6 +62,16 @@ public class Sales implements SqlInterface{
     }
 
     @Override
+    public int Delete(SQLiteDatabase db, String id) {
+        return 0;
+    }
+
+    @Override
+    public int Update(SQLiteDatabase db, String id) {
+        return 0;
+    }
+
+    @Override
     public Cursor Select(SQLiteDatabase db) {
         String[] projection = {
                 BaseColumns._ID,
