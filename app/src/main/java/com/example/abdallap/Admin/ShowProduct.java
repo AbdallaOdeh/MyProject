@@ -28,6 +28,7 @@ public class ShowProduct extends AppCompatActivity implements AdapterView.OnItem
     Product p;
     Product[] product_info;
     Product selected_product;
+    FirebaseAuth fauth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class ShowProduct extends AppCompatActivity implements AdapterView.OnItem
         getProductToArray();
         ListAdapter adapter = new ListAdapter(this,product_info);
         productListview.setAdapter(adapter);
+        fauth = FirebaseAuth.getInstance();
 
     }
     public void getProductToArray(){
@@ -83,8 +85,8 @@ public class ShowProduct extends AppCompatActivity implements AdapterView.OnItem
     }
     @Override
     public void onStop() {
-        FirebaseAuth fauth = FirebaseAuth.getInstance();
-        fauth.signOut();
         super.onStop();
+        fauth.signOut();
+
     }
 }

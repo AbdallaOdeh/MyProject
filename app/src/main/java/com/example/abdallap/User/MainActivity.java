@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             username.setText(user.getDisplayName());
             email.setText(user.getEmail());
         }else{
-            Intent i= new Intent(MainActivity.this, AddProductActivity.class);
+            Intent i= new Intent(MainActivity.this, LogIn.class);
             startActivity(i);
         }
         drawerLayout = findViewById(R.id.drawer_layout);

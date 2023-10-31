@@ -19,7 +19,7 @@ import android.os.Bundle;
 import android.provider.BaseColumns;
 
 public  class DBHelper {
-    private static final String DATABASE_NAME = "MyProject.db";
+    private static final String DATABASE_NAME = "Abdalladb.db";
     private static final int DATABASE_VERSION = 1;
 
 
@@ -38,7 +38,7 @@ public  class DBHelper {
 
         @Override
         public void onCreate(SQLiteDatabase sqLiteDatabase) {
-           sqLiteDatabase.execSQL(SQL_CREATE_PRODUCT);
+            sqLiteDatabase.execSQL(SQL_CREATE_PRODUCT);
         }
 
         @Override

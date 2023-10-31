@@ -36,7 +36,7 @@ import static com.example.abdallap.DataTables.TablesString.ProductTable.*;
         String selectedId;
         Uri selectedImageUri;
         DBHelper dbHelper;
-
+        FirebaseAuth fauth;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -56,6 +56,8 @@ import static com.example.abdallap.DataTables.TablesString.ProductTable.*;
             btdelete.setOnClickListener(this);
             imageButton.setOnClickListener(this);
             dbHelper = new DBHelper(this);
+            fauth = FirebaseAuth.getInstance();
+
             SetIntentString();
 
 
@@ -170,9 +172,9 @@ import static com.example.abdallap.DataTables.TablesString.ProductTable.*;
         }
         @Override
         public void onStop() {
-            FirebaseAuth fauth = FirebaseAuth.getInstance();
-            fauth.signOut();
             super.onStop();
+            fauth.signOut();
+
         }
 
 
