@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.provider.BaseColumns;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -16,7 +15,7 @@ import static com.example.abdallap.DataTables.TablesString.ProductTable.*;
 
 import com.example.abdallap.Classes.Product;
 import com.example.abdallap.DataTables.DBHelper;
-import com.example.abdallap.ListAdapter;
+import com.example.abdallap.Classes.ListAdapter;
 import com.example.abdallap.R;
 import com.google.firebase.auth.FirebaseAuth;
 
