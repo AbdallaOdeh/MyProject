@@ -27,7 +27,7 @@ import static com.example.abdallap.DataTables.TablesString.ProductTable.*;
     public class AddProductActivity extends AppCompatActivity implements View.OnClickListener{
 
         private static int RESULT_LOAD_IMAGE = 1;
-        EditText etname,etdisc,etstock,etsaleprice,etbuyprice;
+        EditText etname, etdisc, etstock, etsaleprice, etbuyprice;
         ImageButton imageButton;
         Button btadd,btupdate,btdelete;
         Product p;

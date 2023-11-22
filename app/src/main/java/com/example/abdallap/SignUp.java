@@ -1,4 +1,4 @@
-package com.example.abdallap.User;
+package com.example.abdallap;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.abdallap.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -106,7 +105,7 @@ public class SignUp extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                startActivity(new Intent(SignUp.this,MainActivity.class));
+                                                startActivity(new Intent(SignUp.this, MainActivity.class));
                                             }
                                         }
                                     });

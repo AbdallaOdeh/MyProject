@@ -13,22 +13,25 @@
         android:theme="@style/Theme.AbdallaP"
         tools:targetApi="31">
         <activity
+            android:name=".User.ProductInfo"
+            android:exported="false" />
+        <activity
             android:name=".Admin.ListView"
             android:exported="false" />
         <activity
             android:name=".Admin.ShowProduct"
             android:exported="false" />
         <activity
-            android:name=".User.SignUp"
+            android:name=".SignUp"
             android:exported="false" />
         <activity
             android:name=".Admin.AddProductActivity"
             android:exported="false" />
         <activity
-            android:name=".User.LogIn"
+            android:name=".LogIn"
             android:exported="false" />
         <activity
-            android:name=".User.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

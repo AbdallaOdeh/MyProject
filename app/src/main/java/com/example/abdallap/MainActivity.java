@@ -1,4 +1,4 @@
-package com.example.abdallap.User;
+package com.example.abdallap;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,13 +14,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.abdallap.Admin.AddProductActivity;
 import com.example.abdallap.Admin.ShowProduct;
-import com.example.abdallap.CartFragment;
-import com.example.abdallap.HomeFragment;
-import com.example.abdallap.InfoFragment;
-import com.example.abdallap.ProductFragment;
-import com.example.abdallap.R;
+import com.example.abdallap.User.HomeFragment;
+import com.example.abdallap.User.CartFragment;
+import com.example.abdallap.User.HomeFragment;
+import com.example.abdallap.User.InfoFragment;
+import com.example.abdallap.User.ProductFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

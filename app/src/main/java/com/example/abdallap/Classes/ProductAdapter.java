@@ -1,86 +1,97 @@
 package com.example.abdallap.Classes;
+
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.abdallap.Classes.Product;
 import com.example.abdallap.R;
-import com.example.abdallap.utils.model.ShoeItem;
+
+import com.example.abdallap.User.ProductInfo;
 
 import java.util.List;
 
-public class ShoeItemAdapter extends RecyclerView.Adapter<ShoeItemAdapter.ShoeItemViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
-    private List<ShoeItem> shoeItemList;
-    private ShoeClickedListeners shoeClickedListeners;
-    public ShoeItemAdapter(ShoeClickedListeners shoeClickedListeners){
-        this.shoeClickedListeners = shoeClickedListeners;
-    }
-    public void setShoeItemList(List<ShoeItem> shoeItemList){
-        this.shoeItemList = shoeItemList;
-    }
-    @NonNull
-    @Override
-    public ShoeItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.each_shoe , parent , false);
-        return new ShoeItemViewHolder(view);
+    List<Product> productList;
+    Context context;
+
+    public ProductAdapter(Context context, List<Product> productList) {
+        this.context = context;
+        this.productList = productList;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ShoeItemViewHolder holder, int position) {
-        ShoeItem shoeItem = shoeItemList.get(position);
-        holder.shoeNameTv.setText(shoeItem.getShoeName());
-        holder.shoeBrandNameTv.setText(shoeItem.getShoeBrandName());
-        holder.shoePriceTv.setText(String.valueOf(shoeItem.getShoePrice()));
-        holder.shoeImageView.setImageResource(shoeItem.getShoeImage());
+    public ViewHolder onCreateViewHolder( ViewGroup parent, int i) {
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                shoeClickedListeners.onCardClicked(shoeItem);
-            }
-        });
+        View view = LayoutInflater.from(context).inflate(R.layout.each_clothe, parent, false);
+        return new ViewHolder(view);
 
-        holder.addToCartBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                shoeClickedListeners.onAddToCartBtnClicked(shoeItem);
-            }
-        });
+    }
+
+    @Override
+    public void onBindViewHolder( ViewHolder holder, int position) {
+
+        // here we will find the position and start setting the output on our views
+
+        String nameofProduct = productList.get(position).getProdtype();
+        String descriptionofproduct = productList.get(position).getProddisc();
+        byte[] images = productList.get(position).getImageByte();
+        Bitmap bm = BitmapFactory.decodeByteArray(images, 0 ,images.length);
+
+        holder.tvNameOfProduct.setText(nameofProduct);
+        holder.tvDescriptionOfProduct.setText(descriptionofproduct);
+        holder.imageOfProduct.setImageBitmap(bm);
+
     }
 
     @Override
     public int getItemCount() {
-        if (shoeItemList == null){
-            return 0;
-        }else{
-            return shoeItemList.size();
-        }
+        return productList.size();
     }
 
-    public class ShoeItemViewHolder extends RecyclerView.ViewHolder{
-        private ImageView shoeImageView , addToCartBtn;
-        private TextView shoeNameTv, shoeBrandNameTv, shoePriceTv;
-        private CardView cardView;
-        public ShoeItemViewHolder(@NonNull View itemView) {
+    // in order to make our views responsive we can implement onclicklistener on our recyclerview
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        // here we will find the views on which we will inflate our data
+
+        TextView tvNameOfProduct, tvDescriptionOfProduct,tvPriceOfProduct;
+        ImageView imageOfProduct,addtocart;
+
+        public ViewHolder(View itemView) {
             super(itemView);
 
-            cardView = itemView.findViewById(R.id.eachShoeCardView);
-            addToCartBtn = itemView.findViewById(R.id.eachShoeAddToCartBtn);
-            shoeNameTv = itemView.findViewById(R.id.eachShoeName);
-            shoeImageView = itemView.findViewById(R.id.eachShoeIv);
-            shoeBrandNameTv = itemView.findViewById(R.id.eachShoeBrandNameTv);
-            shoePriceTv = itemView.findViewById(R.id.eachShoePriceTv);
-        }
-    }
+            tvNameOfProduct = itemView.findViewById(R.id.eachClotheName);
+            tvDescriptionOfProduct = itemView.findViewById(R.id.eachClotheDisc);
+            tvPriceOfProduct = itemView.findViewById(R.id.eachClothePriceTv);
+            imageOfProduct = itemView.findViewById(R.id.eachClotheIv);
+            addtocart = itemView.findViewById(R.id.eachClotheAddToCartBtn);
+            addtocart.setOnClickListener(this);
+            itemView.setOnClickListener(this);
 
-    public interface ShoeClickedListeners{
-        void onCardClicked(ShoeItem shoe);
-        void onAddToCartBtnClicked(ShoeItem shoeItem);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(v.getId() == R.id.eachClotheAddToCartBtn){
+
+            }
+            else{
+                Intent intent = new Intent(v.getContext(),ProductInfo.class);
+                intent.putExtra("id",productList.get(getLayoutPosition()).getPid()+"");
+                v.getContext().startActivity(intent);
+            }
+        }
     }
 }
