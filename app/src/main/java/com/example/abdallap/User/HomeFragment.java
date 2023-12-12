@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
         productList = new ArrayList<>();
         dbHelper = new DBHelper(inflater.getContext());
         dbHelper = dbHelper.OpenReadAble();
-        Product p = new Product(),p2=new Product();
+        Product p = new Product();
         Cursor c = p.Select(dbHelper.getDb());
         c.moveToFirst();
         while(!c.isAfterLast()){
@@ -49,8 +49,9 @@ public class HomeFragment extends Fragment {
             p.setSaleprice(c.getDouble(c.getColumnIndexOrThrow(COLUMN_PRODUCT_SALEPRICE)));
             p.setStock(c.getInt(c.getColumnIndexOrThrow(COLUMN_PRODUCT_STOCK)));
             p.setImageByte(c.getBlob(c.getColumnIndexOrThrow(COLUMN_PRODUCT_IMAGE)));
-            productList.add(p2);
+            productList.add(p);
             c.moveToNext();
+            p=new Product();
         }
         // adapter
         mAdapter = new ProductAdapter(inflater.getContext(), productList);
