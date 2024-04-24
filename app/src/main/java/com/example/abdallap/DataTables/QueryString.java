@@ -17,8 +17,10 @@ public class QueryString {
     public static final String SQL_CREATE_CART =
             "CREATE TABLE " + CartTable.TABLE_CART + " (" +
                     CartTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    CartTable.COLUMN_PRODUCT_ID + " TEXT," +
-                    CartTable.COLUMN_USER_ID + " TEXT);";
+                    CartTable.COLUMN_PRODUCT_ID + " INTEGER," +
+                    CartTable.COLUMN_USER_ID + " TEXT," +
+                    CartTable.COLUMN_AMOUNT + " INTEGER);";
+
 
     public static final String SQL_CREATE_SALE =
             "CREATE TABLE " + SaleTable.TABLE_SALE + " (" +

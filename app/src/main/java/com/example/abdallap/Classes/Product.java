@@ -75,16 +75,6 @@ public class Product implements SqlInterface{
     }
 
     @Override
-    public int Delete(SQLiteDatabase db, int id) {
-        return 0;
-    }
-
-    @Override
-    public int Update(SQLiteDatabase db, int id) {
-        return 0;
-    }
-
-    @Override
     public int Delete(SQLiteDatabase db, String id) {
         String selection = BaseColumns._ID + " LIKE ?";
 // Specify arguments in placeholder order.
